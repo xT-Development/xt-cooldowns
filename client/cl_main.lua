@@ -99,11 +99,3 @@ RegisterNetEvent('xt-cooldowns:client:CooldownsList', function()
     })
     lib.showContext('cooldowns_menu')
 end)
-
-RegisterCommand('dev:cooldown', function()
-    local isActive = lib.callback.await('cooldowns:isActive', false, 'Stores')
-
-    local toggle = lib.callback.await('cooldowns:toggleCooldown', false, 'Stores')
-
-    print(isActive, toggle)
-end)
