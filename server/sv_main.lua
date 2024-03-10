@@ -8,6 +8,13 @@ MySQL.ready(function()
     allCooldowns = MySQL.query.await('SELECT * FROM `cooldowns`')
 end)
 
+AddEventHandler('triggerCooldown', function(cooldownID)
+    while allCooldowns[cooldownID].length == 1 do
+        Wait(allCooldowns[cooldownID].length * 60000)
+        allCooldowns[cooldownID].active = 0
+    end
+end)
+
 -- Check if Cooldown is Active --
 lib.callback.register('cooldowns:isActive', function(source, name)
     local cooldownID = getCooldownIDByName(name)
@@ -22,6 +29,12 @@ end)
 -- Enable Cooldown --
 lib.callback.register('cooldowns:enable', function(source, name)
     local cooldownID = getCooldownIDByName(name)
+    if allCooldowns[cooldownID].active == 1 then return end
+
+    allCooldowns[cooldownID].active = 1
+    Wait(100)
+    TriggerEvent('triggerCooldown', cooldownID)
+
     return allCooldowns[cooldownID].active == 1
 end)
 
