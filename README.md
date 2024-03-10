@@ -9,10 +9,10 @@
 - Check if cooldowns are active using simple a callback
 - Toggle cooldowns using a simple a callback
   - Cooldowns will disable automatically, allowing the activity to be usable again
-- Global cooldown used to enable/disable ALL activties using the cooldown callbacks
+- Global cooldown used to enable/disable ALL activities using the cooldown callbacks
 - Grace period feature
-  - Some servers have grace periods when the server starts up or is about to shutdown. Global cooldowns will auto enable/disable when the server starts and before it restarts for the lenght of time you set your grace period to be.
-  - Ex: If 15 mins, all activites are diabled for 15 mins when the server starts up or is about to shut down
+  - Some servers have grace periods when the server starts up or is about to shutdown. Global cooldowns will auto enable/disable when the server starts and before it restarts for the length of time you set your grace period to be.
+  - Ex: If 15 mins, all activities are disabled for 15 mins when the server starts up or is about to shut down
 - Admin menu for cooldowns
   - Create new cooldowns (obviously not used unless the callback is implemented in the code to check that cooldown)
   - Toggle cooldowns
