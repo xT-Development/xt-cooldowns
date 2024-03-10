@@ -70,7 +70,7 @@ function addCooldown(INFO)
     local callback = false
     local id = MySQL.insert.await('INSERT INTO `cooldowns` (name, length, active) VALUES (?, ?, ?)', { INFO[1], INFO[2], 0 })
     Wait(100)
-    print(id)
+
     if id then
         callback = true
 
